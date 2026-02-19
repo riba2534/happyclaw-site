@@ -1,0 +1,101 @@
+---
+const webScreenshots = [
+  { src: '/screenshots/chat-tool-tracking.png', alt: 'Chat Tool Tracking' },
+  { src: '/screenshots/chat-markdown.png', alt: 'Chat Markdown' },
+  { src: '/screenshots/chat-image-gen.png', alt: 'Chat Image Generation' },
+];
+
+const mobileScreenshots = [
+  { src: '/screenshots/mobile-login.png', alt: 'Mobile Login', label: '登录' },
+  { src: '/screenshots/mobile-groups.png', alt: 'Mobile Groups', label: '群组' },
+  { src: '/screenshots/mobile-monitor.png', alt: 'Mobile Monitor', label: '监控' },
+  { src: '/screenshots/mobile-settings.png', alt: 'Mobile Settings', label: '设置' },
+];
+
+const feishuScreenshots = [
+  { src: '/screenshots/feishu-chat.png', alt: 'Feishu Chat' },
+  { src: '/screenshots/feishu-card-reply.png', alt: 'Feishu Card Reply' },
+];
+---
+
+<section id="screenshots" class="py-24 px-4">
+  <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">产品截图</h2>
+
+  <!-- Tab Buttons -->
+  <div class="flex justify-center gap-2 mb-12">
+    <button data-tab="web" class="px-6 py-2 rounded-full text-sm font-medium transition-colors bg-teal-600 text-white">Web 界面</button>
+    <button data-tab="mobile" class="px-6 py-2 rounded-full text-sm font-medium transition-colors text-slate-400 hover:text-white bg-white/5">移动端</button>
+    <button data-tab="feishu" class="px-6 py-2 rounded-full text-sm font-medium transition-colors text-slate-400 hover:text-white bg-white/5">飞书集成</button>
+  </div>
+
+  <!-- Tab 1: Web -->
+  <div data-panel="web">
+    <div class="rounded-xl overflow-hidden border border-white/10 shadow-2xl max-w-5xl mx-auto">
+      <div class="bg-slate-800 px-4 py-3 flex items-center gap-2">
+        <span class="w-3 h-3 rounded-full bg-red-500"></span>
+        <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+        <span class="w-3 h-3 rounded-full bg-green-500"></span>
+        <span class="flex-1 text-center text-sm text-slate-400">happyclaw.cc</span>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 bg-slate-950">
+        {webScreenshots.map((s) => (
+          <img src={s.src} alt={s.alt} loading="lazy" class="rounded-lg w-full" />
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Tab 2: Mobile -->
+  <div data-panel="mobile" class="hidden">
+    <div class="flex justify-center gap-6 flex-wrap">
+      {mobileScreenshots.map((s) => (
+        <div class="flex flex-col items-center">
+          <div class="relative w-[180px] md:w-[200px] rounded-[2rem] border-4 border-slate-700 bg-slate-950 p-2 shadow-xl">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-6 bg-slate-700 rounded-b-xl"></div>
+            <img src={s.src} alt={s.alt} loading="lazy" class="rounded-2xl w-full mt-4" />
+          </div>
+          <span class="text-xs text-slate-400 text-center mt-2">{s.label}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Tab 3: Feishu -->
+  <div data-panel="feishu" class="hidden">
+    <div class="rounded-xl overflow-hidden border border-white/10 shadow-2xl max-w-4xl mx-auto">
+      <div class="bg-slate-800 px-4 py-3 flex items-center gap-2">
+        <span class="w-3 h-3 rounded-full bg-red-500"></span>
+        <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+        <span class="w-3 h-3 rounded-full bg-green-500"></span>
+        <span class="flex-1 text-center text-sm text-slate-400">飞书</span>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-4 bg-slate-950">
+        {feishuScreenshots.map((s) => (
+          <img src={s.src} alt={s.alt} loading="lazy" class="rounded-lg w-full" />
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const tabs = document.querySelectorAll('[data-tab]');
+  const panels = document.querySelectorAll('[data-panel]');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = (tab as HTMLElement).dataset.tab;
+      tabs.forEach(t => {
+        const el = t as HTMLElement;
+        el.classList.toggle('bg-teal-600', el.dataset.tab === target);
+        el.classList.toggle('text-white', el.dataset.tab === target);
+        el.classList.toggle('text-slate-400', el.dataset.tab !== target);
+        el.classList.toggle('bg-white/5', el.dataset.tab !== target);
+      });
+      panels.forEach(p => {
+        const el = p as HTMLElement;
+        el.classList.toggle('hidden', el.dataset.panel !== target);
+      });
+    });
+  });
+</script>
