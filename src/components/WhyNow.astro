@@ -1,0 +1,54 @@
+---
+const items = [
+  {
+    k: '数据泄露是首要顾虑',
+    v: '约 58% 的企业把「商业数据泄露」列为采用 AI 的首要顾虑 —— 私有化不是偏好,是底线。',
+  },
+  {
+    k: '合规在持续收紧',
+    v: '《网络数据安全管理条例》《个人信息保护合规审计办法》相继施行,数据留在内网成为硬要求。',
+  },
+  {
+    k: '私有化已是主流形态',
+    v: '中国大模型市场以私有化部署为主 —— AI 用得越深,数据就越不能出门。',
+  },
+];
+---
+
+<section
+  id="why"
+  style="background:#0d0f14;color:#fff;padding:80px 0;margin-top:40px;"
+>
+  <div class="section-pad" style="max-width:1200px;margin:0 auto;padding:0 28px;">
+    <div data-reveal style="max-width:780px;margin-bottom:40px;">
+      <div
+        style="font-size:12px;letter-spacing:0.18em;color:#eaa583;font-weight:600;margin-bottom:16px;"
+      >
+        为什么要私有化 · PRIVACY FIRST
+      </div>
+      <h2
+        style="font-size:clamp(28px, 3.6vw, 44px);font-weight:700;letter-spacing:-0.025em;line-height:1.1;margin:0 0 18px;"
+      >
+        AI 用得越深,数据就越不能出门
+      </h2>
+      <p style="font-size:17px;line-height:1.6;color:#b7b8c0;margin:0;">
+        想用 Agent 的企业,第一道坎从来不是模型能力,而是数据能不能留在自己手里。合规、隐私、内网 ——
+        这些恰恰是通用云服务打不到、也是我们最擅长的地方。
+      </p>
+    </div>
+
+    <div class="grid-3" style="display:grid;grid-template-columns:repeat(3, 1fr);gap:20px;">
+      {
+        items.map((w) => (
+          <div
+            data-reveal
+            style="border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:26px;background:rgba(255,255,255,0.03);"
+          >
+            <h3 style="font-size:17px;font-weight:600;margin:0 0 10px;color:#fff;">{w.k}</h3>
+            <p style="font-size:14px;line-height:1.6;color:#a9aab3;margin:0;">{w.v}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

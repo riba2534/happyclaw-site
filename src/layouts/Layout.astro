@@ -7,8 +7,8 @@ interface Props {
 }
 
 const {
-  title = 'HappyClaw - 自托管多用户 AI Agent 系统',
-  description = '基于 Claude Code 驱动的自托管多用户 AI Agent 系统，通过飞书、Telegram 和 Web 随时访问。',
+  title = 'HappyClaw · 企业级 Agent OS',
+  description = '开源、可私有化的企业级 Agent 平台 · 行业能力库 · 落地陪跑。数据不出门,接入飞书 / 钉钉 / 微信 / QQ / Telegram / Web 六端,两周看到可用样例。',
 } = Astro.props;
 ---
 
@@ -16,33 +16,77 @@ const {
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="description" content={description} />
     <meta
       name="keywords"
-      content="HappyClaw, AI Agent, Claude Code, 飞书, Telegram, 自托管"
+      content="HappyClaw, AI Agent, Claude Code, 企业级 Agent, 私有化部署, 飞书, 钉钉, 微信, Telegram, MCP, 开源"
     />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#F57F28" />
+    <link rel="icon" type="image/svg+xml" href="/assets/logo.svg" />
+    <link rel="apple-touch-icon" href="/assets/logo.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
-    <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content="https://happyclaw.cc/og-image.png" />
     <meta property="og:url" content="https://happyclaw.cc" />
     <meta property="og:type" content="website" />
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content="https://happyclaw.cc/og-image.png" />
     <title>{title}</title>
   </head>
-  <body class="bg-slate-900 text-white font-sans antialiased">
+  <body>
     <slot />
+    <a
+      id="hc-top-btn"
+      href="#top"
+      aria-label="回到顶部"
+      style="position:fixed;right:20px;bottom:20px;z-index:60;width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:var(--accent);color:#fff;font-size:20px;line-height:1;opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .25s, transform .25s, background .2s;"
+    >
+      ↑
+    </a>
+    <script>
+      // Scroll reveal + back-to-top button
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              e.target.classList.add('is-in');
+              io.unobserve(e.target);
+            }
+          }
+        },
+        { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+      );
+      document.querySelectorAll<HTMLElement>('[data-reveal]').forEach((el, i) => {
+        el.style.transitionDelay = `${Math.min(i * 50, 400)}ms`;
+        io.observe(el);
+      });
+
+      const topBtn = document.getElementById('hc-top-btn');
+      let ticking = false;
+      const onScroll = () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          const show = window.scrollY > 480;
+          if (topBtn) {
+            topBtn.style.opacity = show ? '1' : '0';
+            topBtn.style.transform = show ? 'none' : 'translateY(12px)';
+            topBtn.style.pointerEvents = show ? 'auto' : 'none';
+          }
+          ticking = false;
+        });
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    </script>
   </body>
 </html>

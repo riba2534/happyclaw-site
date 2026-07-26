@@ -1,0 +1,25 @@
+---
+const stats = [
+  { value: '~750★', label: 'GitHub Stars · MIT 开源' },
+  { value: '6 端', label: '国内 IM 统一接入' },
+  { value: '40+', label: '容器预装工具链' },
+  { value: '100%', label: '私有化 · 数据不出门' },
+];
+---
+
+<section class="section-pad" style="max-width:1200px;margin:0 auto;padding:110px 28px 20px;">
+  <div class="grid-4" style="display:grid;grid-template-columns:repeat(4, 1fr);gap:20px;text-align:center;">
+    {
+      stats.map((s) => (
+        <div data-reveal>
+          <div
+            style="font-size:clamp(28px, 4vw, 42px);font-weight:700;letter-spacing:-0.02em;color:var(--accent);"
+          >
+            {s.value}
+          </div>
+          <div style="font-size:13.5px;color:#63636e;margin-top:4px;">{s.label}</div>
+        </div>
+      ))
+    }
+  </div>
+</section>

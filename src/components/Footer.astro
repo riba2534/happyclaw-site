@@ -1,33 +1,46 @@
-<footer class="py-12 px-4">
-  <div class="h-px bg-gradient-to-r from-transparent via-teal-500/50 to-transparent"></div>
+---
+const links = [
+  { href: 'https://happyclaw.cc', label: '官网', ext: true },
+  { href: 'https://claw.shakaka.xyz', label: '在线试用', ext: true },
+  { href: 'https://github.com/riba2534/happyclaw', label: 'GitHub', ext: true },
+  { href: 'https://github.com/riba2534/happyclaw/blob/main/LICENSE', label: 'License', ext: true },
+  { href: 'mailto:business@happyclaw.cc?subject=HappyClaw%20企业咨询', label: 'business@happyclaw.cc', ext: false },
+];
+---
 
-  <div class="max-w-6xl mx-auto text-center mt-12">
-    <div class="flex items-center justify-center gap-2 mb-6">
-      <img src="/logo.png" class="h-8 w-8 rounded-lg" alt="HappyClaw Logo" />
-      <span class="font-bold text-lg">HappyClaw</span>
+<footer style="border-top:1px solid rgba(0,0,0,0.07);">
+  <div
+    class="section-pad footer-flex"
+    style="max-width:1200px;margin:0 auto;padding:40px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;"
+  >
+    <div style="display:flex;align-items:center;gap:10px;font-weight:700;font-size:17px;color:#0b0b10;">
+      <img
+        src="/assets/logo-full-dark.svg"
+        alt="HappyClaw"
+        style="height:40px;width:auto;display:block;"
+      />
+      <span style="font-weight:400;font-size:13px;color:#a3a3ad;margin-left:6px;">
+        AI 时代的企业级 Agent OS
+      </span>
     </div>
 
-    <div class="flex justify-center gap-6 mb-6">
-      <a
-        href="https://github.com/riba2534/happyclaw"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="text-sm text-slate-400 hover:text-teal-400 transition-colors"
-      >GitHub</a>
-      <a
-        href="https://github.com/riba2534/happyclaw/issues"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="text-sm text-slate-400 hover:text-teal-400 transition-colors"
-      >Issues</a>
-      <a
-        href="https://github.com/riba2534/happyclaw/blob/main/LICENSE"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="text-sm text-slate-400 hover:text-teal-400 transition-colors"
-      >License</a>
+    <div style="display:flex;gap:22px;font-size:14px;color:#63636e;flex-wrap:wrap;">
+      {
+        links.map((l) => (
+          <a
+            href={l.href}
+            target={l.ext ? '_blank' : undefined}
+            rel={l.ext ? 'noopener' : undefined}
+            style="transition:color .2s;"
+            onmouseover="this.style.color='#0b0b10'"
+            onmouseout="this.style.color='#63636e'"
+          >
+            {l.label}
+          </a>
+        ))
+      }
     </div>
 
-    <p class="text-sm text-slate-500">MIT License &middot; &copy; 2025 HappyClaw</p>
+    <div style="font-size:13px;color:#a3a3ad;">MIT License · © 2026 HappyClaw</div>
   </div>
 </footer>

@@ -1,34 +1,106 @@
-<section id="quickstart" class="py-24 px-4">
-  <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">快速开始</h2>
-  <p class="text-slate-400 text-center mb-12">只需三步，即可启动你的 AI Agent 系统</p>
+---
+const steps = [
+  { n: '01', title: '克隆仓库', desc: 'git clone 拉取源码到你的服务器' },
+  { n: '02', title: '一键启动', desc: 'make start 自动构建并运行全部服务,Docker 隔离' },
+  { n: '03', title: 'Web 向导初始化', desc: '跟随设置向导完成配置,数据不出门' },
+];
 
-  <div class="max-w-3xl mx-auto rounded-xl overflow-hidden border border-white/10 shadow-2xl">
-    <!-- Title bar -->
-    <div class="bg-slate-800/80 backdrop-blur px-4 py-3 flex items-center">
-      <div class="flex gap-2">
-        <span class="w-3 h-3 rounded-full bg-red-500"></span>
-        <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
-        <span class="w-3 h-3 rounded-full bg-green-500"></span>
+const stack = ['Node.js', 'TypeScript', 'React', 'Vite', 'Tailwind CSS', 'Docker', 'SQLite', 'Hono', 'Claude Agent SDK', 'MCP'];
+---
+
+<section
+  id="quickstart"
+  style="background:#f5f6f8;border-top:1px solid rgba(0,0,0,0.06);"
+>
+  <div class="section-pad" style="max-width:1200px;margin:0 auto;padding:80px 28px;">
+    <div data-reveal style="margin-bottom:44px;">
+      <div
+        style="font-size:12px;letter-spacing:0.18em;color:var(--accent);font-weight:600;margin-bottom:14px;"
+      >
+        私有化部署 · QUICK START
       </div>
-      <span class="text-sm text-slate-400 flex-1 text-center">Terminal</span>
-      <div class="w-[52px]"></div>
+      <h2
+        style="font-size:clamp(30px, 4vw, 48px);font-weight:700;letter-spacing:-0.025em;margin:0 0 12px;color:#0b0b10;"
+      >
+        三步,部署进你自己的内网
+      </h2>
     </div>
 
-    <!-- Code area -->
-    <div class="bg-slate-950 p-6 font-mono text-sm leading-relaxed">
-      <pre><code><span class="text-slate-500"># 克隆仓库</span>
-<span class="text-slate-300">$</span> <span class="text-teal-400">git clone</span> https://github.com/riba2534/happyclaw.git
+    <div
+      class="qs-panel"
+      style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;"
+    >
+      <div data-reveal style="display:flex;flex-direction:column;gap:20px;">
+        {
+          steps.map((s) => (
+            <div style="display:flex;gap:16px;align-items:flex-start;">
+              <span
+                class="font-mono"
+                style="font-size:14px;color:var(--accent);border:1px solid rgba(245,127,40,0.45);border-radius:10px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:#fff;"
+              >
+                {s.n}
+              </span>
+              <div>
+                <h3 style="font-size:17px;font-weight:600;margin:6px 0 6px;color:#0b0b10;">
+                  {s.title}
+                </h3>
+                <p style="font-size:14px;color:#63636e;margin:0;">{s.desc}</p>
+              </div>
+            </div>
+          ))
+        }
+        <p style="font-size:13px;color:#a3a3ad;margin:6px 0 0;">前置要求:Node.js ≥ 20 + Docker</p>
+      </div>
 
-<span class="text-slate-500"># 进入目录</span>
-<span class="text-slate-300">$</span> <span class="text-teal-400">cd</span> happyclaw
-
-<span class="text-slate-500"># 一键启动</span>
-<span class="text-slate-300">$</span> <span class="text-teal-400">make start</span></code></pre>
+      <div
+        data-reveal
+        style="border-radius:16px;overflow:hidden;background:#0d0d11;"
+      >
+        <div
+          style="display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.08);"
+        >
+          <span style="width:11px;height:11px;border-radius:99px;background:#ff5f57;"></span>
+          <span style="width:11px;height:11px;border-radius:99px;background:#febc2e;"></span>
+          <span style="width:11px;height:11px;border-radius:99px;background:#28c840;"></span>
+          <span class="font-mono" style="margin-left:10px;font-size:12px;color:#7a7a86;">
+            Terminal
+          </span>
+        </div>
+        <div
+          class="font-mono"
+          style="margin:0;padding:22px;font-size:13px;line-height:1.9;color:#c9c9d2;overflow-x:auto;"
+        >
+          <div style="color:#6f6f7b;"># 克隆仓库</div>
+          <div>
+            <span style="color:var(--accent);">$</span> git clone https://github.com/riba2534/happyclaw.git
+          </div>
+          <div style="height:14px;"></div>
+          <div style="color:#6f6f7b;"># 进入目录</div>
+          <div><span style="color:var(--accent);">$</span> cd happyclaw</div>
+          <div style="height:14px;"></div>
+          <div style="color:#6f6f7b;"># 一键启动</div>
+          <div><span style="color:var(--accent);">$</span> make start</div>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div class="mt-6 text-center">
-    <p class="text-slate-300">访问 <code class="text-teal-400">http://localhost:3000</code> 开始使用</p>
-    <p class="text-slate-500 text-sm mt-2">前置要求：Node.js &gt;= 20 + Docker</p>
+    <div data-reveal style="margin-top:60px;text-align:center;">
+      <div
+        style="font-size:12px;letter-spacing:0.18em;color:#a3a3ad;font-weight:600;margin-bottom:22px;"
+      >
+        技术栈 · TECH STACK
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;">
+        {
+          stack.map((s) => (
+            <span
+              style="font-size:14px;color:#444450;border:1px solid rgba(0,0,0,0.1);border-radius:10px;padding:8px 16px;background:#fff;"
+            >
+              {s}
+            </span>
+          ))
+        }
+      </div>
+    </div>
   </div>
 </section>

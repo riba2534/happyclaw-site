@@ -1,0 +1,76 @@
+---
+const layers = [
+  {
+    num: '平台',
+    tag: 'Platform',
+    title: 'MIT 全开源,Docker 一键私有化',
+    desc: '部署在你自己的内网、数据不出门。六端国内 IM 统一接入、多用户隔离与权限、自建计费与用量统计。',
+  },
+  {
+    num: '能力库',
+    tag: 'Skill Library',
+    title: '沉淀自真实项目,开箱即懂行',
+    desc: '不是通用助手,而是已经懂你业务的数字同事。行业 Skill 模块沉淀自真实交付,越用越懂你的业务。',
+  },
+  {
+    num: '服务',
+    tag: 'Service',
+    title: '一支帮你落地的团队',
+    desc: '部署、接入、行业调优、上线陪跑,出问题有人兜底 —— 你付费的,只有「不想自己干的那部分」。',
+  },
+];
+---
+
+<section class="section-pad" style="max-width:1200px;margin:0 auto;padding:60px 28px 40px;">
+  <div data-reveal style="max-width:760px;margin-bottom:44px;">
+    <div
+      style="font-size:12px;letter-spacing:0.18em;color:var(--accent);font-weight:600;margin-bottom:16px;"
+    >
+      我们是什么 · THREE LAYERS
+    </div>
+    <h2
+      style="font-size:clamp(28px, 3.6vw, 44px);font-weight:700;letter-spacing:-0.025em;line-height:1.08;margin:0 0 18px;color:#0b0b10;"
+    >
+      一个开源、可私有化的企业级 Agent 平台,加一支帮你落地的团队
+    </h2>
+    <p style="font-size:17px;line-height:1.6;color:#63636e;margin:0;">
+      部署在你自己的内网,原生接入六端 IM,按你的部门与流程搭一套专属 agent 生态。
+    </p>
+  </div>
+
+  <div class="grid-3" style="display:grid;grid-template-columns:repeat(3, 1fr);gap:20px;">
+    {
+      layers.map((l) => (
+        <div
+          data-reveal
+          class="hover:!border-[color:rgba(245,127,40,0.5)] hover:-translate-y-1"
+          style="border:1px solid rgba(0,0,0,0.08);border-radius:18px;padding:30px;background:#fff;transition:border-color .25s, transform .25s;"
+        >
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px;">
+            <span
+              style="font-weight:700;font-size:15px;color:#fff;background:var(--accent);border-radius:9px;padding:5px 12px;"
+            >
+              {l.num}
+            </span>
+            <span
+              style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#a3a3ad;"
+            >
+              {l.tag}
+            </span>
+          </div>
+          <h3
+            style="font-size:20px;font-weight:600;margin:0 0 12px;letter-spacing:-0.01em;color:#0b0b10;line-height:1.25;"
+          >
+            {l.title}
+          </h3>
+          <p style="font-size:14.5px;line-height:1.65;color:#63636e;margin:0;">{l.desc}</p>
+        </div>
+      ))
+    }
+  </div>
+
+  <p data-reveal style="margin:32px 0 0;font-size:15.5px;line-height:1.7;color:#7a7a84;">
+    开源换来信任,你付费的只有「不想自己干的那部分」——
+    <span style="color:#0b0b10;font-weight:500;">第二个场景,比第一个上线更快。</span>
+  </p>
+</section>

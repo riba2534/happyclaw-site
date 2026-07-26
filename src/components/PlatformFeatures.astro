@@ -1,0 +1,281 @@
+---
+const runtimeTabs = [
+  { key: 'chat', label: '工作台对话', src: '/assets/rt-1.png', alt: '工作台对话与来源引用' },
+  { key: 'content', label: '内容生产', src: '/assets/rt-2.png', alt: '公众号内容生产' },
+  { key: 'research', label: '调研与表格', src: '/assets/rt-3.png', alt: '内容矩阵调研表格' },
+];
+
+const runtimeHighlights = [
+  { title: '实时工具追踪', desc: '工具名称、执行耗时、嵌套层级、参数摘要全程可见,过程透明可审。' },
+  { title: '流式 Markdown 渲染', desc: 'GFM 表格、代码高亮、Mermaid 图表、图片 Lightbox,思考过程逐字推送。' },
+  { title: '图片生成 + 文件管理', desc: '对话中直接生成图像,内置完整文件浏览器,上传下载预览一体。' },
+];
+
+const imShots = [
+  { src: '/assets/im-1.png', alt: '飞书 · 机器人对话' },
+  { src: '/assets/im-2.png', alt: '飞书 · 群内提问' },
+  { src: '/assets/im-3.png', alt: '飞书 · 专属 Agent 分身' },
+  { src: '/assets/im-4.png', alt: '飞书 · 内容生产' },
+];
+
+const imHighlights = [
+  { title: '原生流式卡片', desc: '飞书打字机效果、钉钉 AI Card,多卡片自动拆分,降级链保证送达。' },
+  { title: 'Per-user 通道隔离', desc: '每人独立配置六端凭据,消息按来源回各自渠道,多用户互不干扰。' },
+  { title: '斜杠命令管理', desc: '/bind、/new、/recall 等命令,在聊天里直接管理会话与工作区。' },
+];
+
+const mobileShots = [
+  { src: '/assets/mobile-1.png', label: '登录' },
+  { src: '/assets/mobile-2.png', label: '新建工作区' },
+  { src: '/assets/mobile-3.png', label: '对话' },
+  { src: '/assets/mobile-4.png', label: '能力库' },
+  { src: '/assets/mobile-5.png', label: '设置' },
+];
+
+const mobileHighlights = [
+  { title: '一键安装到桌面', desc: 'iOS / Android 均已适配,安全区域、滚动与触摸交互深度优化。' },
+  { title: '响应式全功能', desc: '聊天、设置、监控面板在小屏同样可用,不做能力阉割。' },
+  { title: '随时监控任务', desc: '掏出手机即可查看执行状态、管理定时任务,Agent 不停工。' },
+];
+---
+
+<section id="platform" class="section-pad" style="max-width:1200px;margin:0 auto;padding:40px 28px;">
+  {/* ─── Block 1: Runtime with tabs ─── */}
+  <div style="padding:70px 0 40px;border-top:1px solid rgba(0,0,0,0.07);">
+    <div data-reveal style="max-width:760px;">
+      <div
+        style="font-size:12px;letter-spacing:0.18em;color:var(--accent);font-weight:600;margin-bottom:16px;"
+      >
+        原生运行时 · RUNTIME
+      </div>
+      <h2
+        style="font-size:clamp(24px, 3.4vw, 40px);font-weight:700;letter-spacing:-0.025em;line-height:1.08;margin:0 0 18px;color:#0b0b10;"
+      >
+        不套壳,顶级编码智能体的原生能力
+      </h2>
+      <p style="font-size:17px;line-height:1.6;color:#63636e;margin:0;">
+        复用业界最强编码智能体的完整 CLI 运行时,上游每次升级平台零适配自动受益。
+      </p>
+    </div>
+
+    <div
+      data-reveal
+      class="platform-card"
+      style="margin-top:40px;border-radius:24px;padding:44px;background:linear-gradient(135deg, #e7d3c1, #c9a487);"
+    >
+      <div style="border:1px solid rgba(255,255,255,0.55);border-radius:14px;overflow:hidden;background:#101014;">
+        <div
+          class="rt-chrome"
+          style="display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.04);flex-wrap:nowrap;overflow:hidden;min-width:0;"
+        >
+          <span style="width:11px;height:11px;border-radius:99px;background:#ff5f57;flex-shrink:0;"></span>
+          <span style="width:11px;height:11px;border-radius:99px;background:#febc2e;flex-shrink:0;"></span>
+          <span style="width:11px;height:11px;border-radius:99px;background:#28c840;flex-shrink:0;"></span>
+          <div class="rt-tabs" style="display:flex;gap:6px;margin-left:14px;flex-shrink:1;min-width:0;overflow:hidden;">
+            {
+              runtimeTabs.map((t, i) => (
+                <button
+                  type="button"
+                  data-rt-tab={String(i)}
+                  style={`border:none;cursor:pointer;font:inherit;font-size:12.5px;padding:6px 12px;border-radius:8px;background:${i === 0 ? 'rgba(255,255,255,0.12)' : 'transparent'};color:${i === 0 ? '#fff' : '#9a9aa5'};transition:background .2s, color .2s;white-space:nowrap;flex-shrink:0;`}
+                >
+                  {t.label}
+                </button>
+              ))
+            }
+          </div>
+          <span
+            class="font-mono rt-url"
+            style="margin-left:auto;font-size:12px;color:#9a9aa5;flex-shrink:0;white-space:nowrap;"
+          >happyclaw.cc</span>
+        </div>
+        <div
+          id="hc-rt-stage"
+          style="position:relative;background:#101014;height:0;padding-bottom:60%;transition:padding-bottom .55s cubic-bezier(.22,.61,.36,1);overflow:hidden;"
+        >
+          {
+            runtimeTabs.map((t, i) => (
+              <img
+                data-rt-shot={String(i)}
+                src={t.src}
+                alt={t.alt}
+                style={`position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:${i === 0 ? 1 : 0};transition:opacity .55s ease;`}
+              />
+            ))
+          }
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-3" style="display:grid;grid-template-columns:repeat(3, 1fr);gap:40px;margin-top:36px;">
+      {
+        runtimeHighlights.map((h) => (
+          <div data-reveal>
+            <h3 style="font-size:17px;font-weight:600;margin:0 0 8px;color:#0b0b10;">{h.title}</h3>
+            <p style="font-size:14px;line-height:1.6;color:#63636e;margin:0;">{h.desc}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  {/* ─── Block 2: Six IM channels ─── */}
+  <div style="padding:70px 0 40px;border-top:1px solid rgba(0,0,0,0.07);">
+    <div data-reveal style="max-width:760px;">
+      <div
+        style="font-size:12px;letter-spacing:0.18em;color:var(--accent);font-weight:600;margin-bottom:16px;"
+      >
+        六端接入 · OMNICHANNEL
+      </div>
+      <h2
+        style="font-size:clamp(22px, 3.1vw, 40px);font-weight:700;letter-spacing:-0.025em;line-height:1.08;margin:0 0 18px;color:#0b0b10;"
+      >
+        飞书、钉钉、微信、QQ、Telegram、Web 六端统一
+      </h2>
+      <p style="font-size:17px;line-height:1.6;color:#63636e;margin:0;">
+        六端国内主流 IM 统一接入、消息统一路由。企业把 AI Agent 接进自己已经在用的飞书 / 钉钉 /
+        微信,每个用户可独立配置自己的通道,互不干扰。
+      </p>
+    </div>
+
+    <div
+      data-reveal
+      class="platform-card"
+      style="margin-top:40px;border-radius:24px;padding:44px;background:linear-gradient(135deg, #c7d4e6, #8ba7c9);"
+    >
+      <div class="grid-im" style="display:grid;grid-template-columns:repeat(4, 1fr);gap:18px;">
+        {
+          imShots.map((s) => (
+            <div
+              style="border:1px solid rgba(255,255,255,0.5);border-radius:16px;overflow:hidden;background:#101014;"
+            >
+              <img src={s.src} alt={s.alt} loading="lazy" style="width:100%;display:block;" />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="grid-3" style="display:grid;grid-template-columns:repeat(3, 1fr);gap:40px;margin-top:36px;">
+      {
+        imHighlights.map((h) => (
+          <div data-reveal>
+            <h3 style="font-size:17px;font-weight:600;margin:0 0 8px;color:#0b0b10;">{h.title}</h3>
+            <p style="font-size:14px;line-height:1.6;color:#63636e;margin:0;">{h.desc}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  {/* ─── Block 3: Mobile PWA ─── */}
+  <div style="padding:70px 0 40px;border-top:1px solid rgba(0,0,0,0.07);">
+    <div data-reveal style="max-width:760px;">
+      <div
+        style="font-size:12px;letter-spacing:0.18em;color:var(--accent);font-weight:600;margin-bottom:16px;"
+      >
+        随时随地 · MOBILE PWA
+      </div>
+      <h2
+        style="font-size:clamp(28px, 3.6vw, 44px);font-weight:700;letter-spacing:-0.025em;line-height:1.08;margin:0 0 18px;color:#0b0b10;"
+      >
+        装进口袋的 AI 工作台
+      </h2>
+      <p style="font-size:17px;line-height:1.6;color:#63636e;margin:0;">
+        专为移动端优化的 PWA,手机浏览器一键安装到桌面,全屏运行、独立图标,视觉上与原生 App 无异。工作区、系统监控、设置均已适配小屏。
+      </p>
+    </div>
+
+    <div
+      data-reveal
+      class="platform-card"
+      style="margin-top:40px;border-radius:24px;padding:48px 44px;background:linear-gradient(135deg, #e6d9b8, #cbab61);"
+    >
+      <div class="grid-5" style="display:grid;grid-template-columns:repeat(5, 1fr);gap:16px;">
+        {
+          mobileShots.map((m) => (
+            <div>
+              <div
+                style="border:1px solid rgba(255,255,255,0.5);border-radius:16px;overflow:hidden;background:#101014;"
+              >
+                <div
+                  role="img"
+                  aria-label={m.label}
+                  style={`width:100%;aspect-ratio:1179 / 2556;background-image:url(${m.src});background-size:cover;background-position:top center;`}
+                ></div>
+              </div>
+              <div
+                style="text-align:center;font-size:12.5px;color:#5a4c2a;margin-top:10px;font-weight:500;"
+              >{m.label}</div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="grid-3" style="display:grid;grid-template-columns:repeat(3, 1fr);gap:40px;margin-top:36px;">
+      {
+        mobileHighlights.map((h) => (
+          <div data-reveal>
+            <h3 style="font-size:17px;font-weight:600;margin:0 0 8px;color:#0b0b10;">{h.title}</h3>
+            <p style="font-size:14px;line-height:1.6;color:#63636e;margin:0;">{h.desc}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  // Runtime tabs: click to switch, auto-cycle every 9s
+  const root = document.getElementById('platform');
+  if (root) {
+    const stage = document.getElementById('hc-rt-stage');
+    const tabs = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-rt-tab]'));
+    const shots = Array.from(root.querySelectorAll<HTMLImageElement>('[data-rt-shot]'));
+    let idx = 0;
+    let timer: number | null = null;
+
+    const setTab = (i: number) => {
+      idx = i;
+      shots.forEach((el) => {
+        const on = el.getAttribute('data-rt-shot') === String(i);
+        el.style.opacity = on ? '1' : '0';
+        if (on && stage && el.naturalWidth && el.naturalHeight) {
+          stage.style.paddingBottom =
+            ((el.naturalHeight / el.naturalWidth) * 100).toFixed(2) + '%';
+        }
+      });
+      tabs.forEach((b) => {
+        const on = b.getAttribute('data-rt-tab') === String(i);
+        b.style.background = on ? 'rgba(255,255,255,0.12)' : 'transparent';
+        b.style.color = on ? '#fff' : '#9a9aa5';
+      });
+    };
+
+    const startAuto = (delay = 6000) => {
+      if (timer) window.clearInterval(timer);
+      timer = window.setInterval(() => {
+        if (!stage) return;
+        const r = stage.getBoundingClientRect();
+        if (r.bottom < 0 || r.top > window.innerHeight) return;
+        setTab((idx + 1) % shots.length);
+      }, delay);
+    };
+
+    tabs.forEach((b) =>
+      b.addEventListener('click', () => {
+        const i = Number(b.getAttribute('data-rt-tab') || '0');
+        setTab(i);
+        startAuto(9000);
+      })
+    );
+
+    const first = shots[0];
+    if (first) {
+      if (first.complete) setTab(0);
+      else first.addEventListener('load', () => setTab(0), { once: true });
+    }
+    startAuto();
+  }
+</script>
