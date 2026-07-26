@@ -1,0 +1,50 @@
+---
+const items = [
+  { t: 'MIT 全开源', d: '平台代码完全开源、不设协议限制,每一行都可审计。' },
+  { t: '私有化自托管', d: 'Docker 一键部署进你自己的内网,数据永不出门。' },
+  { t: '无厂商锁定', d: '不绑任何一家大厂云,自由更换模型 Provider 与 Agent 后端。' },
+  { t: '社区共建', d: '开源生态是我们迭代的核心动力,也是每个人的 Skill 库。' },
+];
+---
+
+<section id="opensource" style="background:#0d0f14;color:#fff;padding:90px 0;">
+  <div class="section-pad" style="max-width:1200px;margin:0 auto;padding:0 28px;">
+    <div data-reveal style="max-width:760px;margin-bottom:44px;">
+      <div
+        style="font-size:12px;letter-spacing:0.18em;color:#eaa583;font-weight:600;margin-bottom:16px;"
+      >
+        开源 · OPEN SOURCE
+      </div>
+      <h2
+        style="font-size:clamp(30px, 4vw, 48px);font-weight:700;letter-spacing:-0.025em;line-height:1.08;margin:0 0 18px;"
+      >
+        开源,为所有人。
+      </h2>
+      <p style="font-size:17px;line-height:1.6;color:#b7b8c0;margin:0 0 26px;">
+        平台坚持 MIT 全开源、不设协议限制 —— 社区共建是我们迭代的核心动力。平台代码不是护城河;真正不可复制的,是专有的行业能力库、服务交付执行力、活跃社区与客户关系。
+      </p>
+      <a
+        href="https://github.com/riba2534/happyclaw"
+        target="_blank"
+        rel="noopener"
+        style="display:inline-block;background:var(--accent);color:#fff;font-weight:600;font-size:15px;padding:13px 26px;border-radius:11px;transition:transform .15s;"
+      >
+        ⭐ Star on GitHub
+      </a>
+    </div>
+
+    <div class="grid-4" style="display:grid;grid-template-columns:repeat(4, 1fr);gap:16px;">
+      {
+        items.map((o) => (
+          <div
+            data-reveal
+            style="border:1px solid rgba(255,255,255,0.12);border-radius:14px;padding:22px;background:rgba(255,255,255,0.03);"
+          >
+            <h3 style="font-size:16px;font-weight:600;margin:0 0 8px;color:#fff;">{o.t}</h3>
+            <p style="font-size:13.5px;line-height:1.55;color:#a9aab3;margin:0;">{o.d}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

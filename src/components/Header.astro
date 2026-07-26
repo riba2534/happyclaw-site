@@ -1,64 +1,122 @@
 ---
+const links = [
+  { href: '#platform', label: '产品 Platform' },
+  { href: '#why', label: '为什么私有化' },
+  { href: '#projects', label: '落地案例' },
+  { href: '#opensource', label: '开源' },
+];
 ---
-<header class="fixed top-0 w-full z-50 bg-slate-900/80 backdrop-blur-xl border-b border-white/10">
-  <nav class="max-w-7xl mx-auto flex items-center justify-between py-4 px-4 md:px-8">
-    <a href="/" class="flex items-center gap-2">
-      <img src="/logo.png" alt="HappyClaw" class="h-8 w-8 rounded-lg" />
-      <span class="font-bold text-lg">HappyClaw</span>
-    </a>
 
-    <!-- Desktop nav -->
-    <div class="hidden md:flex items-center gap-6">
-      <a href="#features" class="text-sm text-slate-300 hover:text-teal-400 transition-colors">特性</a>
-      <a href="#screenshots" class="text-sm text-slate-300 hover:text-teal-400 transition-colors">截图</a>
-      <a href="#quickstart" class="text-sm text-slate-300 hover:text-teal-400 transition-colors">快速开始</a>
+<nav
+  id="hc-nav"
+  class="hc-nav"
+  style="position:fixed;top:0;left:0;right:0;z-index:50;background:transparent;border-bottom:1px solid transparent;transition:background .3s ease, border-color .3s ease;"
+>
+  <div style="max-width:1200px;margin:0 auto;padding:18px 24px;display:flex;align-items:center;gap:28px;">
+    <a href="#top" data-navlink style="display:flex;align-items:center;">
+      <img
+        id="hc-logo"
+        src="/assets/logo-full.svg"
+        alt="HappyClaw"
+        style="height:44px;width:auto;display:block;"
+      />
+    </a>
+    <div class="hc-nav-links" style="display:flex;align-items:center;gap:30px;margin-left:auto;font-size:14px;">
+      {
+        links.map((l) => (
+          <a
+            href={l.href}
+            data-navlink
+            class="hc-nav-hide"
+            style="color:rgba(255,255,255,0.92);transition:color .3s ease, opacity .2s ease;opacity:.9;"
+          >
+            {l.label}
+          </a>
+        ))
+      }
       <a
         href="https://github.com/riba2534/happyclaw"
         target="_blank"
         rel="noopener"
-        class="text-sm text-slate-300 hover:text-teal-400 transition-colors flex items-center gap-1"
+        data-navlink
+        class="hc-nav-hide"
+        style="color:rgba(255,255,255,0.92);transition:color .3s ease;opacity:.9;"
       >
-        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-        </svg>
         GitHub
       </a>
-    </div>
-
-    <!-- Mobile hamburger -->
-    <button id="menu-toggle" class="md:hidden p-2 text-slate-300 hover:text-white" aria-label="菜单">
-      <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-      </svg>
-    </button>
-  </nav>
-
-  <!-- Mobile menu -->
-  <div id="mobile-menu" class="hidden md:hidden bg-slate-900/95 backdrop-blur-xl border-b border-white/10">
-    <div class="flex flex-col px-4 py-4 gap-4">
-      <a href="#features" class="text-sm text-slate-300 hover:text-teal-400 transition-colors">特性</a>
-      <a href="#screenshots" class="text-sm text-slate-300 hover:text-teal-400 transition-colors">截图</a>
-      <a href="#quickstart" class="text-sm text-slate-300 hover:text-teal-400 transition-colors">快速开始</a>
       <a
-        href="https://github.com/riba2534/happyclaw"
+        href="mailto:business@happyclaw.cc?subject=HappyClaw%20企业咨询"
+        data-navlink
+        class="hc-nav-hide"
+        style="color:rgba(255,255,255,0.92);transition:color .3s ease;opacity:.9;"
+      >
+        联系商务
+      </a>
+      <a
+        id="hc-navbtn"
+        href="https://claw.shakaka.xyz"
         target="_blank"
         rel="noopener"
-        class="text-sm text-slate-300 hover:text-teal-400 transition-colors flex items-center gap-1"
+        class="hc-nav-cta"
+        style="background:#ffffff;color:#0b0b10;font-weight:600;padding:9px 18px;border-radius:10px;transition:transform .15s, background .3s ease, color .3s ease;"
       >
-        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-        </svg>
-        GitHub
+        在线试用
       </a>
     </div>
   </div>
-</header>
+</nav>
 
 <script>
-  const toggle = document.getElementById('menu-toggle');
-  const menu = document.getElementById('mobile-menu');
-  toggle?.addEventListener('click', () => menu?.classList.toggle('hidden'));
-  menu?.querySelectorAll('a').forEach(a =>
-    a.addEventListener('click', () => menu?.classList.add('hidden'))
-  );
+  const nav = document.getElementById('hc-nav') as HTMLElement | null;
+  const logo = document.getElementById('hc-logo') as HTMLImageElement | null;
+  const btn = document.getElementById('hc-navbtn') as HTMLElement | null;
+  const links = nav ? Array.from(nav.querySelectorAll<HTMLAnchorElement>('[data-navlink]')) : [];
+  const header = document.querySelector<HTMLElement>('#top');
+
+  let solid: boolean | null = null;
+  const apply = (s: boolean) => {
+    if (!nav || s === solid) return;
+    solid = s;
+    if (s) {
+      nav.style.background = 'rgba(255,255,255,0.85)';
+      nav.style.backdropFilter = 'blur(14px)';
+      nav.style.setProperty('-webkit-backdrop-filter', 'blur(14px)');
+      nav.style.borderBottomColor = 'rgba(0,0,0,0.07)';
+      links.forEach((a) => {
+        a.style.color = a.getAttribute('href') === '#top' ? '#0b0b10' : '#55555f';
+      });
+      if (logo) logo.src = '/assets/logo-full-dark.svg';
+      if (btn) {
+        btn.style.background = 'var(--accent)';
+        btn.style.color = '#fff';
+      }
+    } else {
+      nav.style.background = 'transparent';
+      nav.style.backdropFilter = 'none';
+      nav.style.setProperty('-webkit-backdrop-filter', 'none');
+      nav.style.borderBottomColor = 'transparent';
+      links.forEach((a) => {
+        a.style.color = a.getAttribute('href') === '#top' ? '#ffffff' : 'rgba(255,255,255,0.92)';
+      });
+      if (logo) logo.src = '/assets/logo-full.svg';
+      if (btn) {
+        btn.style.background = '#ffffff';
+        btn.style.color = '#0b0b10';
+      }
+    }
+  };
+
+  let tick = false;
+  const onScroll = () => {
+    if (tick) return;
+    tick = true;
+    requestAnimationFrame(() => {
+      const thr = header ? header.offsetHeight - 72 : 240;
+      apply(window.scrollY > thr);
+      tick = false;
+    });
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  onScroll();
 </script>

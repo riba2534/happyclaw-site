@@ -1,100 +1,171 @@
 @import "tailwindcss";
 
-/* ===== Glass Design Tokens ===== */
 :root {
-  --glass-blur: 20px;
-  --glass-saturate: 1.8;
-  --glass-bg: rgba(255, 255, 255, 0.55);
-  --glass-bg-dark: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.35);
-  --glass-border-dark: rgba(255, 255, 255, 0.1);
-  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
-  --glass-highlight: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 60%);
-  --glass-inner-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.6);
+  --accent: #F57F28;
+  --accent-hover: #d96a12;
+  --ink: #0b0b10;
+  --ink-2: #14141a;
+  --muted: #63636e;
+  --muted-2: #6f6f7b;
+  --line: rgba(0, 0, 0, 0.08);
+  --line-soft: rgba(0, 0, 0, 0.06);
 }
 
-/* ===== Base ===== */
 html {
   scroll-behavior: smooth;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
 }
 
-/* ===== Glass Utility ===== */
-.glass {
-  background: var(--glass-bg-dark);
-  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
-  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
-  border: 1px solid var(--glass-border-dark);
-  box-shadow: var(--glass-shadow);
+body {
+  margin: 0;
+  background: #ffffff;
+  color: var(--ink-2);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
-.glass-card {
-  background: var(--glass-bg-dark);
-  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
-  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
-  border: 1px solid var(--glass-border-dark);
-  box-shadow: var(--glass-shadow);
-  border-radius: 1rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+a { color: inherit; text-decoration: none; }
+
+::selection { background: rgba(245, 127, 40, 0.28); }
+
+details > summary { list-style: none; cursor: pointer; }
+details > summary::-webkit-details-marker { display: none; }
+details[open] .hc-faq-plus { transform: rotate(45deg); }
+
+.font-mono { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Consolas, monospace; }
+
+/* Nav link underline hover */
+.hc-nav a[data-navlink]:not(.hc-nav-cta):not([href="#top"]) { position: relative; }
+.hc-nav a[data-navlink]:not(.hc-nav-cta):not([href="#top"])::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -5px;
+  height: 1.5px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform .4s cubic-bezier(.22, .61, .36, 1);
+}
+.hc-nav a[data-navlink]:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
-.glass-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
-}
-
-/* ===== Animations ===== */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes drift {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-  }
-  25% {
-    transform: translate(30px, -20px) scale(1.05);
-  }
-  50% {
-    transform: translate(-20px, 20px) scale(0.95);
-  }
-  75% {
-    transform: translate(20px, 10px) scale(1.02);
-  }
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out forwards;
+/* Scroll reveal */
+[data-reveal] {
   opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .7s ease, transform .7s cubic-bezier(.22, .61, .36, 1);
+}
+[data-reveal].is-in {
+  opacity: 1;
+  transform: none;
 }
 
-.animate-drift {
-  animation: drift 20s ease-in-out infinite;
+/* Section scroll offset for sticky nav */
+section[id], header[id] { scroll-margin-top: 72px; }
+
+/* Responsive */
+@media (max-width: 1080px) {
+  .hc-nav-links { gap: 18px !important; }
+}
+@media (max-width: 980px) {
+  .grid-3 { grid-template-columns: repeat(2, 1fr) !important; }
+  .grid-4 { grid-template-columns: repeat(2, 1fr) !important; }
+  .grid-2 { grid-template-columns: 1fr !important; }
+  .grid-proj { grid-template-columns: repeat(2, 1fr) !important; }
+  .grid-5 { grid-template-columns: repeat(3, 1fr) !important; }
+  .grid-im { grid-template-columns: repeat(2, 1fr) !important; }
+  .hc-nav-links { gap: 14px !important; }
+  .hc-nav-hide { display: none !important; }
+  .hero-title { white-space: normal !important; }
+  .platform-card { padding: 28px !important; }
+  .qs-panel { grid-template-columns: 1fr !important; gap: 24px !important; }
+  .hc-nav > div { padding: 14px 18px !important; gap: 14px !important; }
+  #hc-logo { height: 36px !important; }
+  .hero-inner { padding-top: 108px !important; }
+}
+@media (max-width: 640px) {
+  /* Keep 2-col density where 1-col would waste vertical space */
+  .grid-3 { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
+  .grid-4 { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
+  .grid-proj { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
+  .grid-5, .grid-im { grid-template-columns: repeat(2, 1fr) !important; gap: 14px !important; }
+  /* Compact card padding on mobile so 2-col cards don't cramp */
+  .grid-3 > div, .grid-4 > div { padding: 18px !important; }
+  .grid-3 h3, .grid-4 h3 { font-size: 15px !important; margin-bottom: 6px !important; }
+  .grid-3 p, .grid-4 p { font-size: 13px !important; line-height: 1.55 !important; }
+  /* Feature grid & other single-column layouts that should stay 1-col on small screens because rows have too much text */
+  section[id="why"] .grid-3 { grid-template-columns: 1fr !important; }
+  /* CTA buttons: compress + one row on phones */
+  .cta-buttons { flex-wrap: nowrap !important; gap: 8px !important; }
+  .cta-buttons a {
+    padding: 12px 10px !important;
+    font-size: 13px !important;
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+  section, .section-pad, .hero-inner { padding-left: 18px !important; padding-right: 18px !important; }
+  .hero-inner { padding-top: 96px !important; }
+  .platform-card { padding: 20px !important; border-radius: 18px !important; }
+  .cta-card { padding: 48px 22px !important; }
+  #hc-hero-shot { height: 300px !important; object-fit: cover !important; object-position: left top !important; }
+  .hero-shot-wrap { margin-bottom: -44px !important; }
+  .footer-flex { flex-direction: column !important; align-items: flex-start !important; gap: 14px !important; text-align: left !important; }
+  .hero-title { font-size: clamp(26px, 8.5vw, 38px) !important; line-height: 1.18 !important; }
+  .hero-inner p { font-size: 15px !important; line-height: 1.6 !important; }
+  .hero-channels {
+    font-size: 10.5px !important;
+    gap: 7px !important;
+    letter-spacing: 0.03em !important;
+    padding: 0 4px !important;
+  }
+  .hero-cta {
+    gap: 8px !important;
+    flex-wrap: nowrap !important;
+    justify-content: stretch !important;
+  }
+  .hero-cta a {
+    padding: 12px 8px !important;
+    font-size: 13px !important;
+    text-align: center !important;
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    border-radius: 10px !important;
+  }
+  #hc-navbtn { padding: 7px 12px !important; font-size: 12.5px !important; border-radius: 8px !important; }
+  #hc-logo { height: 30px !important; }
+  .hc-nav > div { padding: 12px 16px !important; gap: 10px !important; }
+  section[id="platform"] > div { padding-top: 48px !important; padding-bottom: 24px !important; }
+  section[id="why"], section[id="opensource"] { padding: 60px 0 !important; }
+  /* Runtime browser chrome: hide URL on narrow to keep tabs on one row */
+  .rt-url { display: none !important; }
+  .rt-chrome { padding: 10px 12px !important; gap: 6px !important; }
+  .rt-chrome > div.rt-tabs { margin-left: 10px !important; gap: 4px !important; }
+  .rt-chrome button[data-rt-tab] { padding: 5px 9px !important; font-size: 11.5px !important; }
+}
+@media (max-width: 900px) {
+  /* On tablets the URL may overflow with wide tab labels — hide it */
+  .rt-url { display: none !important; }
 }
 
-/* Stagger delays */
-.delay-100 { animation-delay: 0.1s; }
-.delay-200 { animation-delay: 0.2s; }
-.delay-300 { animation-delay: 0.3s; }
-.delay-400 { animation-delay: 0.4s; }
-.delay-500 { animation-delay: 0.5s; }
-
-/* ===== Reduced Motion ===== */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-
-  html {
-    scroll-behavior: auto;
-  }
+  html { scroll-behavior: auto; }
+  [data-reveal] { opacity: 1 !important; transform: none !important; }
 }
+</content>
+</invoke>

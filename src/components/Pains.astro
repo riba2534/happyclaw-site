@@ -1,0 +1,52 @@
+---
+const pains = [
+  {
+    icon: '🔒',
+    title: '数据出不了内网',
+    desc: '业务数据一旦要上第三方云,合规、审计、涉密场景就先否掉了方案。',
+  },
+  {
+    icon: '🎯',
+    title: '通用能力不落业务',
+    desc: '什么都能聊,可一进设计审稿、内容生产、行业分析这类真实流程就交不出结果。',
+  },
+  {
+    icon: '💸',
+    title: '交付成本吃不消',
+    desc: '巨头的企业级部署动辄百万级预算、半年起的交付周期,大多数团队等不起。',
+  },
+];
+---
+
+<section class="section-pad" style="max-width:1200px;margin:0 auto;padding:80px 28px 40px;">
+  <div data-reveal style="max-width:760px;margin:0 0 44px;">
+    <div
+      style="font-size:12px;letter-spacing:0.18em;color:var(--accent);font-weight:600;margin-bottom:14px;"
+    >
+      客户的难处 · THE GAP
+    </div>
+    <h2
+      style="font-size:clamp(28px, 3.6vw, 44px);font-weight:700;letter-spacing:-0.02em;margin:0 0 14px;color:#0b0b10;"
+    >
+      想让 AI 真正干活,但每条路都走不通
+    </h2>
+    <p style="font-size:16px;line-height:1.6;color:#63636e;margin:0;">
+      要私有化、要懂行、预算又务实 —— 这一档,正是 HappyClaw 的主场。
+    </p>
+  </div>
+
+  <div class="grid-3" style="display:grid;grid-template-columns:repeat(3, 1fr);gap:20px;">
+    {
+      pains.map((p) => (
+        <div
+          data-reveal
+          style="border:1px solid rgba(0,0,0,0.08);border-radius:16px;padding:28px;background:#f8f9fb;"
+        >
+          <div style="font-size:26px;margin-bottom:14px;">{p.icon}</div>
+          <h3 style="font-size:18px;font-weight:600;margin:0 0 10px;color:#0b0b10;">{p.title}</h3>
+          <p style="font-size:14px;line-height:1.6;color:#63636e;margin:0;">{p.desc}</p>
+        </div>
+      ))
+    }
+  </div>
+</section>

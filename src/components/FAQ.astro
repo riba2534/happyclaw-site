@@ -1,0 +1,47 @@
+---
+const faq = [
+  { q: '数据安全吗?Agent 执行发生在哪里?', a: 'Agent 执行发生在你自己的机器或内网。Docker 一键私有化部署,数据不出门,代码不经过我们的服务器。' },
+  { q: '需要自托管,还是有云版?', a: '两者都有。可用 Docker 部署进自己的基础设施,也可以直接使用我们的在线托管试用版 claw.shakaka.xyz。' },
+  { q: '和通用助手有什么不同?', a: '通用助手什么都能聊却不懂你这一行。我们以开源底座为你定制专属的 agent 生态,并把每次定制沉淀成可复用的行业能力库。' },
+  { q: '支持哪些 IM 渠道?', a: '飞书、钉钉、微信、QQ、Telegram、Web 六端统一接入,每个用户可独立配置自己的通道,消息按来源回各自渠道。' },
+  { q: '怎么私有化部署?', a: 'git clone + make start 三步启动,Web 设置向导完成初始化;容器预装 40+ 工具链,Docker 隔离执行。' },
+  { q: '你们全开源,凭什么是门生意?', a: '我们故意 MIT 全开源换社区共建速度 —— 平台代码不是护城河。真正卖的是部署、懂行业的能力库和落地陪跑;fork 拿不走专有能力库、交付执行力与客户关系。' },
+];
+---
+
+<section class="section-pad" style="max-width:1200px;margin:0 auto;padding:20px 28px 90px;">
+  <div data-reveal style="margin-bottom:40px;">
+    <div
+      style="font-size:12px;letter-spacing:0.18em;color:var(--accent);font-weight:600;margin-bottom:14px;"
+    >
+      常见问题 · FAQ
+    </div>
+    <h2
+      style="font-size:clamp(28px, 3.6vw, 44px);font-weight:700;letter-spacing:-0.02em;margin:0;color:#0b0b10;"
+    >
+      问与答。
+    </h2>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:12px;">
+    {
+      faq.map((q) => (
+        <details
+          data-reveal
+          style="border:1px solid rgba(0,0,0,0.1);border-radius:14px;padding:4px 22px;background:#fff;"
+        >
+          <summary
+            style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0;font-size:16px;font-weight:600;color:#0b0b10;"
+          >
+            {q.q}
+            <span
+              class="hc-faq-plus"
+              style="flex-shrink:0;font-size:22px;color:var(--accent);transition:transform .2s;line-height:1;"
+            >+</span>
+          </summary>
+          <p style="margin:0 0 20px;font-size:14.5px;line-height:1.65;color:#63636e;">{q.a}</p>
+        </details>
+      ))
+    }
+  </div>
+</section>

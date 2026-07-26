@@ -1,0 +1,131 @@
+---
+const projects = [
+  { name: 'Ride v2 · Pop 骑行 MV', tag: '创意企划', desc: '完整音乐 MV 企划与分镜 Prompt,从概念到镜头脚本一气呵成。', url: '', host: 'ride v2' },
+  { name: '蔡志忠内容创作知识库', tag: '知识库', desc: '围绕蔡志忠内容创作方法论构建的结构化知识库。', url: '', host: 'knowledge base' },
+  { name: 'AI Daily', tag: 'Wiki', desc: '每日 AI 资讯聚合与整理,持续自动更新。', url: 'https://aidaily.wiki/', host: 'aidaily.wiki' },
+  { name: 'MAgent Wiki', tag: 'Wiki', desc: 'Multi-Agent 相关知识与实践的整理站点。', url: 'https://magent.wiki/', host: 'magent.wiki' },
+  { name: '李笑来主题站', tag: '内容', desc: '围绕李笑来内容整理的主题阅读站。', url: 'https://xiaolai.fate.red/', host: 'xiaolai.fate.red' },
+  { name: 'Free Money', tag: '工具', desc: '理财 / 资金相关的实验性小工具。', url: 'https://free-money.fate.red/', host: 'free-money.fate.red' },
+  { name: 'Leto 投资书籍合集', tag: '书单', desc: '投资经典书籍的结构化导读与书单合集。', url: 'https://leto.fate.red/', host: 'leto.fate.red' },
+  { name: '命 · 轮', tag: '主站', desc: '暗色叙事式首页,fate.red 内容矩阵主入口。', url: 'https://fate.red/', host: 'fate.red' },
+  { name: 'BTC Option', tag: '行情', desc: 'BTC 期权行情与数据展示工具。', url: 'https://btc.option.red/', host: 'btc.option.red' },
+  { name: 'Option.red', tag: '工具', desc: '期权计算与可视化工具集。', url: 'https://option.red/', host: 'option.red' },
+  { name: 'BTC Fate', tag: '行情', desc: 'BTC 行情跟踪与展示页面。', url: 'https://btc.fate.red/', host: 'btc.fate.red' },
+  { name: 'CZ', tag: '内容', desc: 'fate.red 系列下的专题内容站。', url: 'https://cz.fate.red/', host: 'cz.fate.red' },
+  { name: 'feishu-cli', tag: 'GitHub', desc: '飞书命令行工具,脚本化操作飞书。', url: 'https://github.com/riba2534/feishu-cli', host: 'github · feishu-cli' },
+  { name: 'LockAudio', tag: 'GitHub', desc: '音频锁定 / 处理相关的开源小工具。', url: 'https://github.com/riba2534/LockAudio', host: 'github · LockAudio' },
+  { name: 'ACM 题解', tag: '技术', desc: 'ACM / 算法题解整理与展示站点。', url: 'https://acm.riba2534.cn/', host: 'acm.riba2534.cn' },
+  { name: 'TCP 可视化', tag: '技术', desc: 'TCP 协议相关的可视化 / 工具页面。', url: 'https://tcp.riba2534.cn/', host: 'tcp.riba2534.cn' },
+];
+
+const enriched = projects.map((p) => {
+  let domain = '';
+  try {
+    if (p.url && p.url.startsWith('http')) domain = new URL(p.url).hostname;
+  } catch {}
+  return {
+    ...p,
+    shot: domain
+      ? `https://image.thum.io/get/width/1200/crop/750/noanimate/${p.url}`
+      : '',
+    favicon: domain
+      ? `https://www.google.com/s2/favicons?sz=64&domain=${domain}`
+      : '',
+    href: p.url || 'https://github.com/riba2534/happyclaw',
+  };
+});
+---
+
+<section
+  id="projects"
+  style="padding:90px 0;background:#f5f6f8;border-top:1px solid rgba(0,0,0,0.06);border-bottom:1px solid rgba(0,0,0,0.06);"
+>
+  <div class="section-pad" style="max-width:1200px;margin:0 auto;padding:0 28px;">
+    <div data-reveal style="text-align:center;margin-bottom:12px;">
+      <div
+        style="font-size:12px;letter-spacing:0.18em;color:var(--accent);font-weight:600;margin-bottom:14px;"
+      >
+        落地项目 · BUILT WITH HAPPYCLAW
+      </div>
+      <h2
+        style="font-size:clamp(30px, 4vw, 48px);font-weight:700;letter-spacing:-0.025em;margin:0 0 16px;text-wrap:balance;color:#0b0b10;"
+      >
+        这些,都是 Agent 亲手做出来的
+      </h2>
+      <p style="font-size:17px;line-height:1.6;color:#63636e;max-width:640px;margin:0 auto;">
+        从知识库、行情工具到 MV 企划与命令行工具 —— 一批真实上线的项目,全部由 HappyClaw 上的 Agent 独立完成。
+      </p>
+    </div>
+
+    <div
+      class="grid-proj"
+      style="display:grid;grid-template-columns:repeat(4, 1fr);gap:16px;margin-top:44px;"
+    >
+      {
+        enriched.map((proj) => (
+          <a
+            href={proj.href}
+            target="_blank"
+            rel="noopener"
+            data-reveal
+            style="display:flex;flex-direction:column;border:1px solid rgba(0,0,0,0.08);border-radius:16px;overflow:hidden;background:#fff;transition:border-color .25s, transform .25s, box-shadow .25s;min-height:150px;text-decoration:none;"
+          >
+            <div
+              style="position:relative;aspect-ratio:16 / 10;background:#f2f3f5;border-bottom:1px solid rgba(0,0,0,0.06);overflow:hidden;"
+            >
+              {proj.shot && (
+                <img
+                  src={proj.shot}
+                  alt=""
+                  loading="lazy"
+                  data-hc-img
+                  style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;background:#f2f3f5;"
+                />
+              )}
+              <span
+                style="position:absolute;left:10px;top:10px;font-size:10.5px;letter-spacing:0.06em;text-transform:uppercase;color:#0b0b10;background:rgba(255,255,255,0.92);border-radius:99px;padding:3px 9px;font-weight:600;"
+              >
+                {proj.tag}
+              </span>
+              <span
+                style="position:absolute;right:10px;top:10px;width:22px;height:22px;border-radius:99px;background:rgba(255,255,255,0.92);color:#0b0b10;font-size:12px;display:flex;align-items:center;justify-content:center;"
+              >
+                ↗
+              </span>
+            </div>
+            <div style="display:flex;flex-direction:column;flex:1;padding:16px 18px 18px;">
+              <h3
+                style="font-size:16.5px;font-weight:600;margin:0 0 8px;letter-spacing:-0.01em;line-height:1.25;color:#0b0b10;"
+              >
+                {proj.name}
+              </h3>
+              <p style="font-size:13px;line-height:1.5;color:#6f6f7b;margin:0 0 14px;flex:1;">
+                {proj.desc}
+              </p>
+              <span
+                class="font-mono"
+                style="display:flex;align-items:center;gap:7px;font-size:11.5px;color:#a3a3ad;"
+              >
+                {proj.favicon && (
+                  <span
+                    style={`width:14px;height:14px;border-radius:3px;background-image:url(${proj.favicon});background-size:contain;background-repeat:no-repeat;background-position:center;flex-shrink:0;`}
+                  />
+                )}
+                {proj.host}
+              </span>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  // Hide broken thumbnail images gracefully
+  document.querySelectorAll<HTMLImageElement>('img[data-hc-img]').forEach((i) => {
+    i.onerror = () => {
+      i.style.visibility = 'hidden';
+    };
+  });
+</script>
