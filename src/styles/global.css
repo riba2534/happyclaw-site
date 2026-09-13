@@ -26,6 +26,11 @@ body {
 
 a { color: inherit; text-decoration: none; }
 
+/* Headings balance their lines so a heading never drops 1-2 chars onto a
+   lone last line; body copy avoids orphans. Both degrade to normal wrapping. */
+h1, h2, h3 { text-wrap: balance; }
+p { text-wrap: pretty; }
+
 ::selection { background: rgba(245, 127, 40, 0.28); }
 
 details > summary { list-style: none; cursor: pointer; }
