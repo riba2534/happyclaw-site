@@ -1,17 +1,17 @@
 ---
 const features = [
-  { icon: '⚙️', title: '原生 Claude Code 运行时', desc: '完整 CLI 运行时而非 API 套壳,继承全部能力,随上游升级零适配受益。' },
-  { icon: '🔀', title: '六端 IM 统一接入', desc: '飞书 / 钉钉 / 微信 / QQ / Telegram / Web 消息统一路由。' },
-  { icon: '🔒', title: 'Per-user 完全隔离', desc: '独立工作区、IM 通道、会话记忆,多用户互不干扰。' },
-  { icon: '📱', title: '移动端 PWA', desc: 'iOS / Android 一键安装到桌面,响应式全功能。' },
-  { icon: '🧰', title: 'MCP / Skill 接入', desc: '接入外部开源生态,Agent 与主进程双向通信。' },
-  { icon: '⏰', title: '定时任务调度', desc: 'Cron / 固定间隔 / 一次性执行,完整执行日志。' },
-  { icon: '🧠', title: '四层记忆系统', desc: '用户全局 + 会话 + 日期记忆,全文检索,跨会话持久化。' },
-  { icon: '📦', title: '40+ 工具链容器', desc: 'Node.js、Python、Chromium、ffmpeg 等,Docker 隔离执行。' },
+  { icon: '⚙️', title: '原生 Claude Code 运行时', desc: '完整 CLI 运行时，继承 Claude Code 的全部能力，上游升级无需适配。' },
+  { icon: '🔀', title: '六端 IM 统一接入', desc: '飞书、钉钉、微信、QQ、Telegram、Web 消息统一路由。' },
+  { icon: '🔒', title: 'Per-user 完全隔离', desc: '独立工作区、IM 通道和会话记忆，多用户互不干扰。' },
+  { icon: '📱', title: '移动端 PWA', desc: 'iOS 和 Android 均可安装到桌面，小屏功能完整。' },
+  { icon: '🧰', title: 'MCP / Skill 接入', desc: '接入外部开源生态，Agent 与主进程双向通信。' },
+  { icon: '⏰', title: '定时任务调度', desc: '支持 Cron、固定间隔和一次性执行，附完整执行日志。' },
+  { icon: '🧠', title: '四层记忆系统', desc: '用户全局、会话、日期等多层记忆，支持全文检索和跨会话持久化。' },
+  { icon: '📦', title: '40+ 工具链容器', desc: '预装 Node.js、Python、Chromium、ffmpeg 等等，Docker 隔离执行。' },
   { icon: '🛡️', title: '企业级安全', desc: 'RBAC 权限、AES-256-GCM 加密、审计日志、邀请码注册。' },
-  { icon: '📊', title: '自建计费与用量', desc: '内建用量统计与计费,多用户成本清晰可控。' },
-  { icon: '🐳', title: 'Docker 一键私有化', desc: 'git clone + make start 三步部署进内网,数据不出门。' },
-  { icon: '⚖️', title: '多 Provider 负载均衡', desc: '不绑单一模型厂商,自由更换与均衡多个 Provider。' },
+  { icon: '📊', title: '自建计费与用量', desc: '内建用量统计和计费，多用户成本可按人核算。' },
+  { icon: '🐳', title: 'Docker 一键私有化', desc: 'git clone、make start 三步部署进内网。' },
+  { icon: '⚖️', title: '多 Provider 负载均衡', desc: '不绑定单一模型厂商，多个 Provider 之间可自由切换并做负载均衡。' },
 ];
 ---
 
@@ -20,7 +20,7 @@ const features = [
     <div
       style="font-size:12px;letter-spacing:0.18em;color:var(--accent);font-weight:600;margin-bottom:14px;"
     >
-      操作系统级原语 · CAPABILITIES
+      平台能力 · CAPABILITIES
     </div>
     <h2
       style="font-size:clamp(28px, 3.6vw, 44px);font-weight:700;letter-spacing:-0.02em;margin:0;color:#0b0b10;"

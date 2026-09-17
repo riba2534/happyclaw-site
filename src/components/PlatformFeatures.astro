@@ -6,9 +6,9 @@ const runtimeTabs = [
 ];
 
 const runtimeHighlights = [
-  { title: '实时工具追踪', desc: '工具名称、执行耗时、嵌套层级、参数摘要全程可见,过程透明可审。' },
-  { title: '流式 Markdown 渲染', desc: 'GFM 表格、代码高亮、Mermaid 图表、图片 Lightbox,思考过程逐字推送。' },
-  { title: '图片生成 + 文件管理', desc: '对话中直接生成图像,内置完整文件浏览器,上传下载预览一体。' },
+  { title: '实时工具追踪', desc: '工具名称、执行耗时、嵌套层级和参数摘要全程可见，每一步都可审计。' },
+  { title: '流式 Markdown 渲染', desc: '支持 GFM 表格、代码高亮、Mermaid 图表等等，思考过程逐字推送。' },
+  { title: '图片生成与文件管理', desc: '对话内直接生成图像，内置文件浏览器，上传、下载和预览在同一界面完成。' },
 ];
 
 const imShots = [
@@ -19,9 +19,9 @@ const imShots = [
 ];
 
 const imHighlights = [
-  { title: '原生流式卡片', desc: '飞书打字机效果、钉钉 AI Card,多卡片自动拆分,降级链保证送达。' },
-  { title: 'Per-user 通道隔离', desc: '每人独立配置六端凭据,消息按来源回各自渠道,多用户互不干扰。' },
-  { title: '斜杠命令管理', desc: '/bind、/new、/recall 等命令,在聊天里直接管理会话与工作区。' },
+  { title: '原生流式卡片', desc: '飞书打字机效果、钉钉 AI Card 原生支持，长回复自动拆卡，降级链保证送达。' },
+  { title: 'Per-user 通道隔离', desc: '每人独立配置六端凭据，消息按来源渠道原路返回。' },
+  { title: '斜杠命令管理', desc: '/bind、/new、/recall 等等命令，在聊天窗口内直接管理会话和工作区。' },
 ];
 
 const mobileShots = [
@@ -33,9 +33,9 @@ const mobileShots = [
 ];
 
 const mobileHighlights = [
-  { title: '一键安装到桌面', desc: 'iOS / Android 均已适配,安全区域、滚动与触摸交互深度优化。' },
-  { title: '响应式全功能', desc: '聊天、设置、监控面板在小屏同样可用,不做能力阉割。' },
-  { title: '随时监控任务', desc: '掏出手机即可查看执行状态、管理定时任务,Agent 不停工。' },
+  { title: '一键安装到桌面', desc: 'iOS 和 Android 均已适配，安全区域、滚动和触摸交互逐项优化。' },
+  { title: '响应式全功能', desc: '聊天、设置和监控面板在小屏上功能完整，不做删减。' },
+  { title: '随时监控任务', desc: '在手机上即可查看执行状态、管理定时任务，Agent 在后台持续运行。' },
 ];
 ---
 
@@ -51,10 +51,10 @@ const mobileHighlights = [
       <h2
         style="font-size:clamp(24px, 3.4vw, 40px);font-weight:700;letter-spacing:-0.025em;line-height:1.08;margin:0 0 18px;color:#0b0b10;"
       >
-        不套壳,顶级编码智能体的原生能力
+        完整 Claude Code 运行时，不是 API 套壳
       </h2>
       <p style="font-size:17px;line-height:1.6;color:#63636e;margin:0;">
-        复用业界最强编码智能体的完整 CLI 运行时,上游每次升级平台零适配自动受益。
+        平台运行的是 Claude Code 的完整 CLI 运行时，上游每次升级，无需适配即可获得新能力。
       </p>
     </div>
 
@@ -133,8 +133,7 @@ const mobileHighlights = [
         飞书、钉钉、微信、QQ、Telegram、Web 六端统一
       </h2>
       <p style="font-size:17px;line-height:1.6;color:#63636e;margin:0;">
-        六端国内主流 IM 统一接入、消息统一路由。企业把 AI Agent 接进自己已经在用的飞书 / 钉钉 /
-        微信,每个用户可独立配置自己的通道,互不干扰。
+        六端国内主流 IM 统一接入，消息统一路由，Agent 直接接入企业现有的飞书、钉钉、微信。每个用户可以单独配置自己的通道，彼此互不干扰。
       </p>
     </div>
 
@@ -179,10 +178,10 @@ const mobileHighlights = [
       <h2
         style="font-size:clamp(28px, 3.6vw, 44px);font-weight:700;letter-spacing:-0.025em;line-height:1.08;margin:0 0 18px;color:#0b0b10;"
       >
-        装进口袋的 AI 工作台
+        手机上也是完整的工作台
       </h2>
       <p style="font-size:17px;line-height:1.6;color:#63636e;margin:0;">
-        专为移动端优化的 PWA,手机浏览器一键安装到桌面,全屏运行、独立图标,视觉上与原生 App 无异。工作区、系统监控、设置均已适配小屏。
+        移动端 PWA，手机浏览器即可安装到桌面，全屏运行、独立图标，交互体验接近原生 App。工作区、系统监控和设置都做了小屏适配。
       </p>
     </div>
 
